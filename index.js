@@ -30,7 +30,7 @@ app.post("/upload", upload.single("image"), async (req, res)=>{
         if(!file) return res.status(400).send("To file uploaded");
 
         // upload to cloudinary
-        const result = await cloudinary.UploadStream.upload(file.path, {
+        const result = await cloudinary.uploader.upload(file.path, {
             folder: "uploads"
         })
         const newImage = new ImageModel({imageUrl: result.secure_url });
