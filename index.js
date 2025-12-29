@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const ImageModel = require("./models/images")
 
-dotenv.config();
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
