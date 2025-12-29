@@ -4,7 +4,7 @@ const multer = require("multer");
 const cloudinary = require("cloudinary");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const ImageModel = require("./models/images")
+const {ImageModel} = require("./models/images")
 
 require("dotenv").config();
 
@@ -42,7 +42,7 @@ app.post("/upload", upload.single("image"), async (req, res)=>{
         });
     } catch (error) {
         res.status(500).json({
-            message: "Image Upload Failed", error });
+            message: "Image Upload Failed", error: error.message });
     }
 })
 
