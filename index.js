@@ -46,5 +46,15 @@ app.post("/upload", upload.single("image"), async (req, res)=>{
     }
 })
 
+app.get("/images", async (req, res) => {
+  try {
+    const images = await ImageModel.find();
+    res.status(200).json(images);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to fetch images", error: error });
+  }
+});
+
 app.listen(process.env.PORT||3000, ()=>{console.log("Server is running");
 })
