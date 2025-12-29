@@ -45,3 +45,6 @@ app.post("/upload", upload.single("image"), async (req, res)=>{
             message: "Image Upload Failed", error });
     }
 })
+
+app.listen(process.env.PORT||3000, ()=>{console.log("Server is running");
+})
